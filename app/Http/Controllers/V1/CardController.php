@@ -27,7 +27,9 @@ class CardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'label' => 'required|string',
+        ]);
     }
 
     /**
