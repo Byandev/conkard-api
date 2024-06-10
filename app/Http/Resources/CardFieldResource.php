@@ -2,15 +2,14 @@
 
 namespace App\Http\Resources;
 
-use App\Models\Card;
+use App\Models\CardField;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-
 /**
- * @mixin Card
+ * @mixin CardField
  */
-class CardResource extends JsonResource
+class CardFieldResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -21,12 +20,12 @@ class CardResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'user_id' => $this->user_id,
+            'card_id' => $this->card_id,
             'label' => $this->label,
-            'fields' => CardFieldResource::collection($this->whenLoaded('fields')),
+            'value' => $this->value,
+            'type_id' => $this->type_id,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'deleted_at' => $this->deleted_at,
         ];
     }
 }

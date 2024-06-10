@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CardRequest;
 use App\Http\Resources\CardResource;
 use App\Models\Card;
+use App\Models\CardField;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Spatie\QueryBuilder\QueryBuilder;
 
 class CardController extends Controller
@@ -25,11 +28,24 @@ class CardController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CardRequest $request)
     {
-        $request->validate([
-            'label' => 'required|string',
+        $card = Card::create([
+            'id' => Str::uuid()->toString(),
+            'user_id' => auth()->id(),
+            'label' => $request->input('label')
         ]);
+
+        foreach ($request->input('fields') as $field) {
+            CardField::create([
+                'card_id' => $card->id,
+                'type_id' => $field['type_id'],
+                'value' => $field['value'],
+                'label' => $field['label']
+            ]);
+        }
+
+        return CardResource::make($card->loadMissing('fields'));
     }
 
     /**
