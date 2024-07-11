@@ -7,6 +7,7 @@ use App\Http\Controllers\V1\Auth\PasswordResetLinkController;
 use App\Http\Controllers\V1\Auth\RegisteredUserController;
 use App\Http\Controllers\V1\Auth\VerifyEmailController;
 
+use App\Http\Controllers\V1\CardController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -44,4 +45,7 @@ Route::group(['prefix' => 'v1'], function () {
            ->middleware('auth')
            ->name('logout');
    });
+
+   Route::apiResource('cards', CardController::class)
+       ->middleware('auth:sanctum');
 });
