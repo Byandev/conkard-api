@@ -10,7 +10,7 @@ class CardFieldTypeController extends Controller
 {
     public function __invoke()
     {
-        $data = CardFieldType::all();
+        $data = CardFieldType::orderBy('order', 'ASC')->get();
 
         return CardFieldTypeResource::collection($data);
     }

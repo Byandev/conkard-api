@@ -18,6 +18,7 @@ return new class extends Migration
             $table->boolean('display_icon')->default(false);
             $table->string('category');
             $table->text('icon_url');
+            $table->unsignedInteger('order')->default(0);
             $table->timestamps();
         });
     }

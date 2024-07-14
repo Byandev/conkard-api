@@ -23,7 +23,7 @@ class CardFieldFactory extends Factory
             'card_id' => fn () => Card::factory()->create()->id,
             'label' => $this->faker->word,
             'value' => $this->faker->word,
-            'type_id' => fn () => CardFieldType::factory()->create()->id
+            'type_id' => fn () => CardFieldType::factory()->create()->id,
         ];
     }
 }

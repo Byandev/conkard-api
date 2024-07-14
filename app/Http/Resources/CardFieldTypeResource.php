@@ -24,7 +24,8 @@ class CardFieldTypeResource extends JsonResource
             "suggested_labels" => $this->suggested_labels,
             "display_icon" => $this->display_icon,
             "category" => $this->category,
-            "icon_url" => $this->icon_url
+            "icon_url" => $this->icon_url,
+            "order" => $this->order
         ];
     }
 }
