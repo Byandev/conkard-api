@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Models\Card;
-use App\Models\CardField;
-use App\Models\CardFieldType;
+use Conkard\Models\Card;
+use Conkard\Models\CardField;
+use Conkard\Models\CardFieldType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

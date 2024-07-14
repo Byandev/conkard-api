@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\V1\Auth;
+namespace Conkard\Http\Controllers\V1\Auth;
 
-use App\Http\Controllers\Controller;
+use Conkard\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;

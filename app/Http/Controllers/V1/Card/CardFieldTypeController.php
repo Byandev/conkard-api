@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\V1;
+namespace Conkard\Http\Controllers\V1\Card;
 
-use App\Http\Controllers\Controller;
-use App\Http\Resources\CardFieldTypeResource;
-use App\Models\CardFieldType;
+use Conkard\Http\Controllers\Controller;
+use Conkard\Http\Resources\CardFieldTypeResource;
+use Conkard\Models\CardFieldType;
 
 class CardFieldTypeController extends Controller
 {

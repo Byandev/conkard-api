@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\V1;
+namespace Conkard\Http\Controllers\V1\Card;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\CardRequest;
-use App\Http\Resources\CardResource;
-use App\Models\Card;
-use App\Models\CardField;
+use Conkard\Http\Controllers\Controller;
+use Conkard\Http\Requests\CardRequest;
+use Conkard\Http\Resources\CardResource;
+use Conkard\Models\Card;
+use Conkard\Models\CardField;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Spatie\QueryBuilder\QueryBuilder;

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Resources;
+namespace Conkard\Http\Resources;
 
-use App\Models\CardField;
-use App\Models\CardFieldType;
+use Conkard\Models\CardField;
+use Conkard\Models\CardFieldType;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 

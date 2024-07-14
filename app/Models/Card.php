@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace Conkard\Models;
 
-use App\Enums\MediaCollectionType;
+use Conkard\Enums\MediaCollectionType;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

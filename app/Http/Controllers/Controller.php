@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Conkard\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
 

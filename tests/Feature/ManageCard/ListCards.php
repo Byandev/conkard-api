@@ -1,7 +1,7 @@
 <?php
 
-use App\Models\Card;
-use App\Models\User;
+use Conkard\Models\Card;
+use Conkard\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Sanctum\Sanctum;
 use function Pest\Faker\fake;

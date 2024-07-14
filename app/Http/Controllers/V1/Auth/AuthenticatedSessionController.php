@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\V1\Auth;
+namespace Conkard\Http\Controllers\V1\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest;
-use App\Http\Resources\UserResource;
-use App\Models\User;
+use Conkard\Http\Controllers\Controller;
+use Conkard\Http\Requests\Auth\LoginRequest;
+use Conkard\Http\Resources\UserResource;
+use Conkard\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;

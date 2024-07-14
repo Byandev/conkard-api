@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Enums\CardFieldCategory;
-use App\Models\CardFieldType;
+use Conkard\Enums\CardFieldCategory;
+use Conkard\Models\CardFieldType;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Storage;

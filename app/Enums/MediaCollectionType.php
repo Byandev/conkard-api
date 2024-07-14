@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Enums;
+namespace Conkard\Enums;
 
 enum MediaCollectionType: string
 {

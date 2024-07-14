@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\V1\Auth;
+namespace Conkard\Http\Controllers\V1\Auth;
 
-use App\Http\Controllers\Controller;
+use Conkard\Http\Controllers\Controller;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\RedirectResponse;

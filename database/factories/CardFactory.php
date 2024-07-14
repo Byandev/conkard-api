@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\Card;
-use App\Models\User;
+use Conkard\Models\Card;
+use Conkard\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

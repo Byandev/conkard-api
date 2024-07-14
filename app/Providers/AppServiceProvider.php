@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Conkard\Providers;
 
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\ServiceProvider;

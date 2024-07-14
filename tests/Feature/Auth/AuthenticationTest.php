@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\User;
+use Conkard\Models\User;
 use Laravel\Sanctum\Sanctum;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 

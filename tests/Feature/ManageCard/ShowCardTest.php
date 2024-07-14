@@ -1,11 +1,10 @@
 <?php
 
-use App\Models\Card;
-use App\Models\CardField;
-use App\Models\User;
+use Conkard\Models\Card;
+use Conkard\Models\CardField;
+use Conkard\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Sanctum\Sanctum;
-use function Pest\Faker\fake;
 
 uses(RefreshDatabase::class);
 uses(\Illuminate\Foundation\Testing\WithFaker::class);
@@ -26,18 +25,14 @@ test('user can get card details', function () {
     ]));
 
     $response->assertSuccessful()
-        ->dump();
-//        ->assertJsonCount($count, 'data')
-//        ->assertJsonStructure([
-//            'data' => [
-//                [
-//                    'id',
-//                    'user_id',
-//                    'label',
-//                    'created_at',
-//                    'updated_at',
-//                    'deleted_at'
-//                ]
-//            ]
-//        ]);
+        ->assertJsonStructure([
+            'data' => [
+                    'id',
+                    'user_id',
+                    'label',
+                    'created_at',
+                    'updated_at',
+                    'deleted_at'
+                ]
+        ]);
 });

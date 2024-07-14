@@ -1,13 +1,13 @@
 <?php
 
-use App\Http\Controllers\V1\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\V1\Auth\EmailVerificationNotificationController;
-use App\Http\Controllers\V1\Auth\NewPasswordController;
-use App\Http\Controllers\V1\Auth\PasswordResetLinkController;
-use App\Http\Controllers\V1\Auth\RegisteredUserController;
-use App\Http\Controllers\V1\Auth\VerifyEmailController;
-
-use App\Http\Controllers\V1\CardController;
+use Conkard\Http\Controllers\V1\Auth\AuthenticatedSessionController;
+use Conkard\Http\Controllers\V1\Auth\EmailVerificationNotificationController;
+use Conkard\Http\Controllers\V1\Auth\NewPasswordController;
+use Conkard\Http\Controllers\V1\Auth\PasswordResetLinkController;
+use Conkard\Http\Controllers\V1\Auth\RegisteredUserController;
+use Conkard\Http\Controllers\V1\Auth\VerifyEmailController;
+use Conkard\Http\Controllers\V1\Card\CardController;
+use Conkard\Http\Controllers\V1\Card\CardFieldTypeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -47,7 +47,7 @@ Route::group(['prefix' => 'v1'], function () {
    });
 
    Route::group(['middleware' => 'auth:sanctum'], function () {
-       Route::get('cards/field-types', \App\Http\Controllers\V1\CardFieldTypeController::class)
+       Route::get('cards/field-types', CardFieldTypeController::class)
            ->name('cards.field-types');
 
        Route::apiResource('cards', CardController::class);
