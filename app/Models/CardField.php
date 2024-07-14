@@ -10,4 +10,9 @@ class CardField extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function type(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(CardFieldType::class);
+    }
 }

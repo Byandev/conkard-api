@@ -41,7 +41,7 @@ class CardController extends Controller
                 'card_id' => $card->id,
                 'type_id' => $field['type_id'],
                 'value' => $field['value'],
-                'label' => $field['label']
+                'label' => $field['label'] ?? null
             ]);
         }
 
@@ -53,7 +53,7 @@ class CardController extends Controller
      */
     public function show(Card $card)
     {
-        //
+        return CardResource::make($card->load(['fields' => ['type']]));
     }
 
     /**

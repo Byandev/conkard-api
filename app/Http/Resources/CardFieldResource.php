@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use App\Models\CardField;
+use App\Models\CardFieldType;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -26,6 +27,8 @@ class CardFieldResource extends JsonResource
             'type_id' => $this->type_id,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
+
+            'type' => CardFieldTypeResource::make($this->whenLoaded('type'))
         ];
     }
 }

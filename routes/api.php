@@ -46,6 +46,11 @@ Route::group(['prefix' => 'v1'], function () {
            ->name('logout');
    });
 
-   Route::apiResource('cards', CardController::class)
-       ->middleware('auth:sanctum');
+   Route::group(['middleware' => 'auth:sanctum'], function () {
+       Route::get('cards/field-types', \App\Http\Controllers\V1\CardFieldTypeController::class)
+           ->name('cards.field-types');
+
+       Route::apiResource('cards', CardController::class);
+   });
+
 });

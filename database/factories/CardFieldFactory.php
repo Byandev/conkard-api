@@ -2,10 +2,13 @@
 
 namespace Database\Factories;
 
+use App\Models\Card;
+use App\Models\CardField;
+use App\Models\CardFieldType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\CardField>
+ * @extends Factory<CardField>
  */
 class CardFieldFactory extends Factory
 {
@@ -17,7 +20,10 @@ class CardFieldFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'card_id' => fn () => Card::factory()->create()->id,
+            'label' => $this->faker->word,
+            'value' => $this->faker->word,
+            'type_id' => fn () => CardFieldType::factory()->create()->id
         ];
     }
 }
