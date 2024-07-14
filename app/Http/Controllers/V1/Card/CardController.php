@@ -45,7 +45,7 @@ class CardController extends Controller
             ]);
         }
 
-        return CardResource::make($card->loadMissing('fields'));
+        return CardResource::make($card->load(['fields' => ['type']]));
     }
 
     /**
@@ -59,9 +59,22 @@ class CardController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Card $card)
+    public function update(CardRequest $request, Card $card)
     {
-        //
+        $card->fields()->delete();
+
+        $card->update(['label' => $request->post('label')]);
+
+        foreach ($request->input('fields') as $field) {
+            CardField::create([
+                'card_id' => $card->id,
+                'type_id' => $field['type_id'],
+                'value' => $field['value'],
+                'label' => $field['label'] ?? null
+            ]);
+        }
+
+        return CardResource::make($card->fresh()->load(['fields' => ['type']]));
     }
 
     /**
@@ -69,6 +82,8 @@ class CardController extends Controller
      */
     public function destroy(Card $card)
     {
-        //
+        $card->delete();
+
+        return response()->noContent();
     }
 }

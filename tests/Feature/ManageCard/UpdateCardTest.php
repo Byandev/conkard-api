@@ -1,5 +1,7 @@
 <?php
 
+use Conkard\Models\Card;
+use Conkard\Models\CardField;
 use Conkard\Models\CardFieldType;
 use Conkard\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -9,12 +11,19 @@ use function Pest\Faker\fake;
 uses(RefreshDatabase::class);
 
 
-test('user can save new card', function () {
+test('user can update card', function () {
     $user = User::factory()->create();
 
     Sanctum::actingAs($user);
 
-    $response = $this->postJson(route('cards.store'), [
+    $card = Card::factory()
+        ->create(['user_id' => $user->id]);
+
+    CardField::factory()
+        ->count(fake()->numberBetween(1, 10))
+        ->create(['card_id' => $card->id]);
+
+    $response = $this->putJson(route('cards.update', ['card' => $card]), [
         'label' => fake()->word,
         'fields' => [
             [
