@@ -3,7 +3,6 @@
 namespace Conkard\Http\Resources;
 
 use Conkard\Models\CardField;
-use Conkard\Models\CardFieldType;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -28,7 +27,7 @@ class CardFieldResource extends JsonResource
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
 
-            'type' => CardFieldTypeResource::make($this->whenLoaded('type'))
+            'type' => CardFieldTypeResource::make($this->whenLoaded('type')),
         ];
     }
 }

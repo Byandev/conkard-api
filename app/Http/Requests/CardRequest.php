@@ -27,7 +27,7 @@ class CardRequest extends FormRequest
             'fields' => 'required|array|min:1',
             'fields.*.type_id' => 'required|exists:card_field_types,id',
             'fields.*.value' => 'required|string',
-            'fields.*.label' => 'sometimes|string|nullable'
+            'fields.*.label' => 'sometimes|string|nullable',
         ];
     }
 }

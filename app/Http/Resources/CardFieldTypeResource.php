@@ -19,13 +19,13 @@ class CardFieldTypeResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            "id" => $this->id,
-            "name" => $this->name,
-            "suggested_labels" => $this->suggested_labels,
-            "display_icon" => $this->display_icon,
-            "category" => $this->category,
-            "icon_url" => $this->icon_url,
-            "order" => $this->order
+            'id' => $this->id,
+            'name' => $this->name,
+            'suggested_labels' => $this->suggested_labels,
+            'display_icon' => $this->display_icon,
+            'category' => $this->category,
+            'icon_url' => $this->icon_url,
+            'order' => $this->order,
         ];
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
 use Conkard\Models\User;
-use Laravel\Sanctum\Sanctum;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Laravel\Sanctum\Sanctum;
 
 uses(RefreshDatabase::class);
 
@@ -25,9 +25,9 @@ test('users can authenticate using the login screen', function () {
                     'email',
                     'email_verified_at',
                     'created_at',
-                    'updated_at'
-                ]
-            ]
+                    'updated_at',
+                ],
+            ],
         ]);
 });
 

@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use Conkard\Enums\CardFieldCategory;
 use Conkard\Models\CardFieldType;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Storage;
 

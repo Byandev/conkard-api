@@ -21,7 +21,7 @@ class CardFactory extends Factory
         return [
             'id' => $this->faker->uuid,
             'label' => $this->faker->word(3),
-            'user_id' => fn () => User::factory()->create()->id
+            'user_id' => fn () => User::factory()->create()->id,
         ];
     }
 }

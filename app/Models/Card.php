@@ -15,20 +15,20 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 class Card extends Model implements HasMedia
 {
     use HasFactory;
-    use InteractsWithMedia;
     use HasUuids;
+    use InteractsWithMedia;
 
     protected $keyType = 'string';
 
     protected $guarded = [];
 
     protected $casts = [
-        'id' => 'string'
+        'id' => 'string',
     ];
 
     public function fields(): HasMany
     {
-        return $this->hasMany(CardField::class );
+        return $this->hasMany(CardField::class);
     }
 
     public function profilePicture(): MorphOne

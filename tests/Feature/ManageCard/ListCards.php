@@ -4,6 +4,7 @@ use Conkard\Models\Card;
 use Conkard\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Sanctum\Sanctum;
+
 use function Pest\Faker\fake;
 
 uses(RefreshDatabase::class);
@@ -29,8 +30,8 @@ test('user can list cards', function () {
                     'label',
                     'created_at',
                     'updated_at',
-                    'deleted_at'
-                ]
-            ]
+                    'deleted_at',
+                ],
+            ],
         ]);
 });

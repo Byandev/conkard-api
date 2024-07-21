@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+
 use function Pest\Faker\fake;
 
 uses(RefreshDatabase::class);
@@ -10,7 +11,7 @@ test('new users can register', function () {
         'name' => fake()->name,
         'email' => fake()->email,
         'password' => $password = fake()->password,
-        'password_confirmation' => $password
+        'password_confirmation' => $password,
     ]);
 
     $response->assertSuccessful()
@@ -24,8 +25,8 @@ test('new users can register', function () {
                     'email',
                     'email_verified_at',
                     'created_at',
-                    'updated_at'
-                ]
-            ]
+                    'updated_at',
+                ],
+            ],
         ]);
 });

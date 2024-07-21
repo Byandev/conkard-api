@@ -10,6 +10,6 @@ class CardFieldType extends Model
     use HasFactory;
 
     protected $casts = [
-        'display_icon' => 'boolean'
+        'display_icon' => 'boolean',
     ];
 }

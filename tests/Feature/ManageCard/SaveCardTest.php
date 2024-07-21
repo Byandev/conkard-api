@@ -4,10 +4,10 @@ use Conkard\Models\CardFieldType;
 use Conkard\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Sanctum\Sanctum;
+
 use function Pest\Faker\fake;
 
 uses(RefreshDatabase::class);
-
 
 test('user can save new card', function () {
     $user = User::factory()->create();
@@ -36,8 +36,8 @@ test('user can save new card', function () {
                 'type_id' => CardFieldType::factory()->create()->id,
                 'value' => fake()->words(3, true),
                 'label' => fake()->words(3, true),
-            ]
-        ]
+            ],
+        ],
     ]);
 
     $response->assertSuccessful()
@@ -54,10 +54,10 @@ test('user can save new card', function () {
                         'value',
                         'type_id',
                         'created_at',
-                        'updated_at'
-                    ]
-                ]
-            ]
+                        'updated_at',
+                    ],
+                ],
+            ],
         ]);
 });
 

@@ -24,8 +24,7 @@ class CardFieldTypeFactory extends Factory
             'display_icon' => $this->faker->boolean,
             'category' => $this->faker->randomElement(CardFieldCategory::cases()),
             'icon_url' => $this->faker->imageUrl(100, 100),
-            'order' => $this->faker->numberBetween(1, 10)
+            'order' => $this->faker->numberBetween(1, 10),
         ];
     }
 }
-
