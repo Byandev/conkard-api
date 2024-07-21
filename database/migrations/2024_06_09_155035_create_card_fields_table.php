@@ -21,7 +21,13 @@ return new class extends Migration
 
             $table->foreign('type_id')
                 ->references('id')
-                ->on('card_field_types');
+                ->on('card_field_types')
+                ->cascadeOnDelete();
+
+            $table->foreign('card_id')
+                ->references('id')
+                ->on('cards')
+                ->cascadeOnDelete();
         });
     }
 

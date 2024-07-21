@@ -33,7 +33,7 @@ class CardController extends Controller
         $card = Card::create([
             'id' => Str::uuid()->toString(),
             'user_id' => auth()->id(),
-            'label' => $request->input('label')
+            'label' => $request->input('label'),
         ]);
 
         foreach ($request->input('fields') as $field) {
@@ -41,7 +41,7 @@ class CardController extends Controller
                 'card_id' => $card->id,
                 'type_id' => $field['type_id'],
                 'value' => $field['value'],
-                'label' => $field['label'] ?? null
+                'label' => $field['label'] ?? null,
             ]);
         }
 
@@ -53,6 +53,10 @@ class CardController extends Controller
      */
     public function show(Card $card)
     {
+        if (auth()->id() !== $card->user_id) {
+            return response(['message' => 'Unauthorized'], 401);
+        }
+
         return CardResource::make($card->load(['fields' => ['type']]));
     }
 
@@ -61,6 +65,10 @@ class CardController extends Controller
      */
     public function update(CardRequest $request, Card $card)
     {
+        if (auth()->id() !== $card->user_id) {
+            return response(['message' => 'Unauthorized'], 401);
+        }
+
         $card->fields()->delete();
 
         $card->update(['label' => $request->post('label')]);
@@ -70,7 +78,7 @@ class CardController extends Controller
                 'card_id' => $card->id,
                 'type_id' => $field['type_id'],
                 'value' => $field['value'],
-                'label' => $field['label'] ?? null
+                'label' => $field['label'] ?? null,
             ]);
         }
 
@@ -82,6 +90,10 @@ class CardController extends Controller
      */
     public function destroy(Card $card)
     {
+        if (auth()->id() !== $card->user_id) {
+            return response(['message' => 'Unauthorized'], 401);
+        }
+
         $card->delete();
 
         return response()->noContent();

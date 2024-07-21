@@ -4,13 +4,13 @@ use Conkard\Models\Card;
 use Conkard\Models\CardField;
 use Conkard\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Laravel\Sanctum\Sanctum;
 
-uses(RefreshDatabase::class);
-uses(WithFaker::class);
+use function Pest\Faker\fake;
 
-test('user can get card details', function () {
+uses(RefreshDatabase::class);
+
+test('user can delete card', function () {
 
     Sanctum::actingAs($user = User::factory()->create());
 
@@ -18,37 +18,31 @@ test('user can get card details', function () {
         ->create(['user_id' => $user->id]);
 
     CardField::factory()
-        ->count($this->faker->numberBetween(1, 10))
+        ->count(fake()->numberBetween(1, 10))
         ->create(['card_id' => $card->id]);
 
-    $response = $this->getJson(route('cards.show', [
+    $response = $this->deleteJson(route('cards.destroy', [
         'card' => $card,
     ]));
 
-    $response->assertSuccessful()
-        ->assertJsonStructure([
-            'data' => [
-                'id',
-                'user_id',
-                'label',
-                'created_at',
-                'updated_at',
-                'deleted_at',
-            ],
-        ]);
+    $response
+        ->assertSuccessful()
+        ->assertNoContent();
+
+    $this->assertDatabaseMissing('cards', ['id' => $card->id]);
+    $this->assertDatabaseMissing('card_fields', ['card_id' => $card->id]);
 });
 
-test('user cannot get other user card details', function () {
+test('user cannot delete card that is belong to other user', function () {
 
     Sanctum::actingAs(User::factory()->create());
-
     $card = Card::factory()->create();
 
     CardField::factory()
-        ->count($this->faker->numberBetween(1, 10))
+        ->count(fake()->numberBetween(1, 10))
         ->create(['card_id' => $card->id]);
 
-    $response = $this->getJson(route('cards.show', [
+    $response = $this->deleteJson(route('cards.destroy', [
         'card' => $card,
     ]));
 
