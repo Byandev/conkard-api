@@ -1,5 +1,6 @@
 <?php
 
+use Conkard\Http\Controllers\ContactController;
 use Conkard\Http\Controllers\V1\Auth\AuthenticatedSessionController;
 use Conkard\Http\Controllers\V1\Auth\EmailVerificationNotificationController;
 use Conkard\Http\Controllers\V1\Auth\NewPasswordController;
@@ -51,6 +52,7 @@ Route::group(['prefix' => 'v1'], function () {
             ->name('cards.field-types');
 
         Route::apiResource('cards', CardController::class);
+        Route::apiResource('contacts', ContactController::class)->except('update');
     });
 
 });
