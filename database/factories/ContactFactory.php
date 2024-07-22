@@ -20,7 +20,6 @@ class ContactFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => $this->faker->uuid,
             'card_id' => fn () => Card::factory()->create()->id,
             'user_id' => fn () => User::factory()->create()->id,
         ];

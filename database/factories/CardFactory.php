@@ -19,7 +19,6 @@ class CardFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => $this->faker->uuid,
             'label' => $this->faker->word(3),
             'user_id' => fn () => User::factory()->create()->id,
         ];

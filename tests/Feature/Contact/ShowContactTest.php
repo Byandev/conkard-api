@@ -29,7 +29,8 @@ test('user can get contact details', function () {
         'contact' => $contact,
     ]));
 
-    $response->dump()->assertSuccessful()
+    $response
+        ->assertSuccessful()
         ->assertJsonStructure([
             'data' => [
                 'id',

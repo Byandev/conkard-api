@@ -3,7 +3,6 @@
 namespace Conkard\Models;
 
 use Conkard\Enums\MediaCollectionType;
-use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -15,16 +14,9 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 class Card extends Model implements HasMedia
 {
     use HasFactory;
-    use HasUuids;
     use InteractsWithMedia;
 
-    protected $keyType = 'string';
-
     protected $guarded = [];
-
-    protected $casts = [
-        'id' => 'string',
-    ];
 
     public function fields(): HasMany
     {
@@ -47,5 +39,16 @@ class Card extends Model implements HasMedia
     {
         return $this->morphOne(Media::class, 'model')
             ->where('collection_name', MediaCollectionType::CARD_COVER_PHOTO->value);
+    }
+
+    public function getImageByType(string $type)
+    {
+        return match ($type) {
+            MediaCollectionType::CARD_PROFILE_PICTURE->value => $this->profilePicture,
+            MediaCollectionType::CARD_COVER_PHOTO->value => $this->coverPhoto,
+            MediaCollectionType::CARD_COMPANY_LOGO->value => $this->companyLogo,
+            default => null,
+        };
+
     }
 }

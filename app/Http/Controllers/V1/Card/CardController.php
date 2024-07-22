@@ -8,7 +8,6 @@ use Conkard\Http\Resources\CardResource;
 use Conkard\Models\Card;
 use Conkard\Models\CardField;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Spatie\QueryBuilder\QueryBuilder;
 
 class CardController extends Controller
@@ -31,7 +30,6 @@ class CardController extends Controller
     public function store(CardRequest $request)
     {
         $card = Card::create([
-            'id' => Str::uuid()->toString(),
             'user_id' => auth()->id(),
             'label' => $request->input('label'),
         ]);

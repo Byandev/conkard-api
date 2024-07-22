@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('card_fields', function (Blueprint $table) {
             $table->id();
-            $table->uuid('card_id');
+            $table->unsignedBigInteger('card_id');
             $table->string('label')->nullable();
             $table->text('value');
             $table->unsignedBigInteger('type_id');

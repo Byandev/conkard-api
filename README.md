@@ -1,9 +1,9 @@
 # Conkard API
 
-Conkard is a digital business card application where users can create, share, and save contacts. 
+Conkard is a digital business card application where users can create, share, and save contacts.
 This repository contains the backend API for the Conkard application, built using Laravel.
 
-Created by [Byandev IT Solutions.](https://byandev.com/) 
+Created by [Byandev IT Solutions.](https://byandev.com/)
 
 ## Table of Contents
 
@@ -55,11 +55,13 @@ Make sure to configure the following environment variables in your `.env` file:
 - `DB_USERNAME`
 - `DB_PASSWORD`
 
-Additionally, you may need to configure other settings such as mail and queue configurations as required by your application.
+Additionally, you may need to configure other settings such as mail and queue configurations as required by your
+application.
 
 ## Usage
 
 Start the development server:
+
 ```sh
 php artisan serve
 ```
@@ -80,6 +82,8 @@ The API will be available at `http://localhost:8000`.
 - `GET /api/v1/cards/{id}` - Get details of a specific business card
 - `PUT /api/v1/cards/{id}` - Update a business card
 - `DELETE /api/v1/cards/{id}` - Delete a business card
+- `POST /api/v1/cards/{id}/image` - Upload business card image
+- `DELETE /api/v1/cards/{id}/image/{id}` - Delete business card image
 
 ### Contacts (In-Progress)
 

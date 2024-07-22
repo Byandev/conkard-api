@@ -6,7 +6,6 @@ use Conkard\Http\Resources\ContactResource;
 use Conkard\Models\Card;
 use Conkard\Models\Contact;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Spatie\QueryBuilder\QueryBuilder;
 
 class ContactController extends Controller
@@ -40,7 +39,6 @@ class ContactController extends Controller
         }
 
         $contact = auth()->user()->contacts()->create([
-            'id' => Str::uuid()->toString(),
             'card_id' => $request->input('card_id'),
         ]);
 

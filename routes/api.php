@@ -9,6 +9,7 @@ use Conkard\Http\Controllers\V1\Auth\RegisteredUserController;
 use Conkard\Http\Controllers\V1\Auth\VerifyEmailController;
 use Conkard\Http\Controllers\V1\Card\CardController;
 use Conkard\Http\Controllers\V1\Card\CardFieldTypeController;
+use Conkard\Http\Controllers\V1\Card\ImageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -52,6 +53,10 @@ Route::group(['prefix' => 'v1'], function () {
             ->name('cards.field-types');
 
         Route::apiResource('cards', CardController::class);
+        Route::apiResource('cards/{card}/images', ImageController::class)
+            ->only(['store', 'destroy'])
+            ->names('cards.images');
+
         Route::apiResource('contacts', ContactController::class)->except('update');
     });
 
