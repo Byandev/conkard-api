@@ -9,6 +9,7 @@ use Conkard\Http\Resources\MediaResource;
 use Conkard\Models\Card;
 use Conkard\Models\Media;
 use Exception;
+use Illuminate\Support\Facades\Log;
 
 class ImageController extends Controller
 {
@@ -17,6 +18,8 @@ class ImageController extends Controller
         if (auth()->id() !== $card->user_id) {
             return response(['message' => 'Unauthorized'], 401);
         }
+
+        Log::error(json_encode(config('filesystems.disks.s3')));
 
         try {
             $card
