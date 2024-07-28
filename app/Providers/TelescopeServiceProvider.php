@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Conkard\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Laravel\Telescope\IncomingEntry;
@@ -55,7 +55,7 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
      */
     protected function gate(): void
     {
-        Gate::define('viewTelescope', function ($user) {
+        Gate::define('viewTelescope', function () {
             return true;
         });
     }
