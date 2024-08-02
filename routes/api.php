@@ -2,6 +2,7 @@
 
 use Conkard\Http\Controllers\ContactController;
 use Conkard\Http\Controllers\V1\Auth\AuthenticatedSessionController;
+use Conkard\Http\Controllers\V1\Auth\AuthenticatedUserController;
 use Conkard\Http\Controllers\V1\Auth\EmailVerificationNotificationController;
 use Conkard\Http\Controllers\V1\Auth\NewPasswordController;
 use Conkard\Http\Controllers\V1\Auth\PasswordResetLinkController;
@@ -49,6 +50,7 @@ Route::group(['prefix' => 'v1'], function () {
     });
 
     Route::group(['middleware' => 'auth:sanctum'], function () {
+        Route::get('auth/me', AuthenticatedUserController::class);
         Route::get('cards/field-types', CardFieldTypeController::class)
             ->name('cards.field-types');
 
